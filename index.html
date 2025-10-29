@@ -1,0 +1,100 @@
+
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>SVS LoveLetter AI — Web</title>
+<link rel="icon" href="assets/favicon.ico">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-girls">
+<div class="app">
+  <header>
+    <div class="logo" id="logo">SVS</div>
+    <div>
+      <div class="title">SVS LoveLetter AI <span class="muted" id="langLabel">DE</span></div>
+      <div class="subtitle">Mehrsprachig · AI-generiert · Web-Demo</div>
+    </div>
+  </header>
+
+  <div class="controls">
+    <div class="card">
+      <label for="keywords" id="labelKeywords">Stichworte (z.B. romantisch, lustig)</label>
+      <textarea id="keywords" rows="4" placeholder="z. B. 'lustig, Fernbeziehung, unterstützend'"></textarea>
+
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+        <div>
+          <label style="margin-bottom:6px" id="labelTone">Ton</label>
+          <div class="options">
+            <label><input type="radio" name="tone" value="friendly" checked> <span class="muted">Freundlich</span></label>
+            <label style="margin-left:8px"><input type="radio" name="tone" value="passionate"> <span class="muted">Leidenschaftlich</span></label>
+          </div>
+        </div>
+
+        <div>
+          <label style="margin-bottom:6px" id="labelLength">Länge</label>
+          <div class="options">
+            <label><input type="radio" name="length" value="long" checked> <span class="muted">Lang</span></label>
+            <label style="margin-left:8px"><input type="radio" name="length" value="short"> <span class="muted">Kurz</span></label>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" id="promptPreviewCard">
+        <label id="labelPrompt">Beispiel-Prompt</label>
+        <div style="background:#fbfbfd;padding:10px;border-radius:8px;border:1px solid #f0f0f2;font-size:13px" id="promptPreview">—</div>
+      </div>
+
+      <div class="row" style="margin-top:12px">
+        <button class="btn btn-primary" id="generateBtn">Erstellen</button>
+        <button class="btn btn-alt" id="clearBtn">Löschen</button>
+        <div style="flex:1"></div>
+      </div>
+
+      <div style="margin-top:10px" class="muted">Hinweis: Keine API-Keys im Browser. Für Produktion Backend nutzen.</div>
+    </div>
+
+    <div>
+      <div class="card" style="margin-bottom:12px">
+        <label id="labelTheme">Design wählen</label>
+        <div class="theme-switch" style="margin-top:8px">
+          <button class="btn small" id="themeGirls">Mädchen (Rosa)</button>
+          <button class="btn small" id="themeBoys">Jungen (Blau)</button>
+        </div>
+
+        <label style="margin-top:12px" id="labelLang">Sprache</label>
+        <div class="lang-list" id="langList" style="margin-top:8px">
+          <button class="lang-btn selected" data-lang="de">DE</button>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <button class="lang-btn" data-lang="es">ES</button>
+          <button class="lang-btn" data-lang="fr">FR</button>
+          <button class="lang-btn" data-lang="it">IT</button>
+        </div>
+
+        <div style="margin-top:12px">
+          <label id="labelBackend">Backend-URL</label>
+          <input id="backendUrl" type="text" value="https://svs-loveletter-backend.onrender.com" />
+          <div class="muted" style="font-size:12px;margin-top:6px">Wenn dein Backend anders heißt: setze die vollständige URL (z. B. https://dein-backend.onrender.com)</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <label id="labelResultTitle">Generierter Brief</label>
+        <div class="result" id="resultArea">—</div>
+        <div class="actions">
+          <button class="btn btn-primary" id="copyBtn">Kopieren</button>
+          <button class="btn btn-alt" id="downloadBtn">Herunterladen (.txt)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div id="footerText">Powered by SVS LoveLetter AI — Demo. Für Produktion Backend verwenden und API-Keys sicher speichern.</div>
+  </footer>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
